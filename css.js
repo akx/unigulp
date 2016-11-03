@@ -35,7 +35,7 @@ module.exports = function getCssTask(spec) {
     var destFile = path.basename(spec.dest);
     var lessSettings = extend({}, DEFAULT_LESS_SETTINGS, spec.lessSettings);
     var postcssModules = [
-        autoprefixer({browsers: ["last 2 versions"]})
+        autoprefixer(spec.autoprefixer || {browsers: ["last 2 versions"]})
     ];
     postcssModules = postcssModules.concat(spec.postcssModules || []);
     if (spec.production) {
